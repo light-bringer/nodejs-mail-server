@@ -1,0 +1,12 @@
+{
+    "web": {
+      "client_id": "157707498757-u4bfp28d9gna9lqvhj012giaf5f1brt7.apps.googleusercontent.com",
+      "project_id": "mail-bot-219004",
+      "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+      "token_uri": "https://www.googleapis.com/oauth2/v3/token",
+      "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+      "client_secret": "wc84nnwUZozJY9PBUazJxYZO",
+      "redirect_uris": ["https://developers.google.com/oauthplayground"],
+      "refresh_token": "1/P2PD4T0kZ3-G28aiaauSYUv2zEFjNQGbkEYCAvByjLk"
+    }
+}
