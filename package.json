@@ -1,5 +1,5 @@
 {
-  "name": "emailapp",
+  "name": "email-notification-app",
   "version": "1.0.0",
   "description": "a small email notification sending server",
   "main": "index.js",
@@ -14,7 +14,16 @@
   "author": "Debapriya Das <yodebu@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "express": "^4.16.3",
     "googleapis": "^34.0.0",
-    "nodemailer": "^4.6.8"
+    "is-there": "^4.4.3",
+    "lodash": "^4.17.11",
+    "nodemailer": "^4.6.8",
+    "q": "^1.5.1"
+  },
+  "devDependencies": {
+    "eslint": "^5.6.1",
+    "mocha": "^5.2.0",
+    "nodemon": "^1.18.4"
   }
 }
