@@ -14,6 +14,7 @@ console.log(__dirname)
 projectName = environmentOptions.projectName || "barebone-node-api-server";
 
 module.exports = {
+  httpsport : environmentOptions.server.httpsport,
   port: environmentOptions.server.port,
   serverHost: environmentOptions.server.host + ':' +environmentOptions.server.port,
   appDir: __dirname.match(new RegExp("(.*\/("+ projectName +")\/)(.*)$"))[1]
