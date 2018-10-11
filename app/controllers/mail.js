@@ -8,14 +8,19 @@ const Q = require('q')
 
 const { google } = require("googleapis");
 const OAuth2 = google.auth.OAuth2;
-const googleconf = require(appDir + '/conf/google.conf.json')
+const fs = require('fs');
+if (fs.existsSync(appDir + '/conf/google.conf.json')) {
+    // Do something
+    const googleconf = require(appDir + '/conf/google.conf.json');
+}
+
 
 console.log(googleconf)
 
 const oauth2Client = new OAuth2(
-     googleconf.web.client_id, // ClientID
-     googleconf.web.client_secret, // Client Secret
-     googleconf.web.redirect_uris // Redirect URL
+     process.env['GOOGLE_CLIENT_ID'] || googleconf.web.client_id, // ClientID
+     process.env['GOOGLE_CLIENT_SECRET'] || googleconf.web.client_secret, // Client Secret
+     process.env['GOGOLE_REDIRECT_URI'] || googleconf.web.redirect_uris // Redirect URL
 );
 
 oauth2Client.setCredentials({
@@ -43,9 +48,9 @@ module.exports.sendMail = (req, res, next)=> {
      auth: {
           type: "OAuth2",
           user: "megatron.notification.bot@gmail.com",
-          clientId: googleconf.web.client_id,
-          clientSecret: googleconf.web.client_secret,
-          refreshToken: googleconf.web.refresh_token,
+          clientId: process.env['GOOGLE_CLIENT_ID'] || googleconf.web.client_id,
+          clientSecret: process.env['GOOGLE_CLIENT_SECRET'] || googleconf.web.client_secret,
+          refreshToken: process.env['GOOGLE_REFRESH_TOKEN'] || googleconf.web.refresh_token,
           accessToken: accessToken
         }
       });
