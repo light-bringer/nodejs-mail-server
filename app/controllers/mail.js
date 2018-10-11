@@ -9,9 +9,10 @@ const Q = require('q')
 const { google } = require("googleapis");
 const OAuth2 = google.auth.OAuth2;
 const fs = require('fs');
+let googleconf;
 if (fs.existsSync(appDir + '/conf/google.conf.json')) {
     // Do something
-    const googleconf = require(appDir + '/conf/google.conf.json');
+    googleconf = require(appDir + '/conf/google.conf.json');
 }
 
 
@@ -20,7 +21,7 @@ console.log(googleconf)
 const oauth2Client = new OAuth2(
      process.env['GOOGLE_CLIENT_ID'] || googleconf.web.client_id, // ClientID
      process.env['GOOGLE_CLIENT_SECRET'] || googleconf.web.client_secret, // Client Secret
-     process.env['GOGOLE_REDIRECT_URI'] || googleconf.web.redirect_uris // Redirect URL
+     process.env['GOOGLE_REDIRECT_URI'] || googleconf.web.redirect_uris // Redirect URL
 );
 
 oauth2Client.setCredentials({
