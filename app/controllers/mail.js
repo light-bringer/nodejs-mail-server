@@ -74,9 +74,9 @@ module.exports.sendMail = (req, res, next)=> {
       let mailOptions = {
         from: '"Debapriya Das", <megatron.notification.bot@gmail.com>',
         to: maildetails.to,
-        subject: mailbody.subject,
+        subject: maildetails.subject,
         generateTextFromHTML: true,
-        html: mailbody.body
+        html: maildetails.body
       };
       smtpTransport.sendMail(mailOptions, (error, response) => {
         if (error) {
