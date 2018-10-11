@@ -38,22 +38,22 @@ module.exports.sendMail = (req, res, next)=> {
   if(_.isNil(req.body)) {
     res.status(500).send({
       message : "Body is Empty."
+    });  
+  }
+  else if(_.isNil(req.body.to)) {
+    res.status(500).send({
+      message : "To Field is Empty."
     });
-    if(_.isNil(req.body.to)) {
-      res.status(500).send({
-        message : "To Field is Empty."
-      });
-    }
-    else if(_.isNil(req.body.body)) {
-      res.status(500).send({
-        message : "Body Field is Empty."
-      });
-    }
-    else if(_.isNil(req.body.subject)) {
-      res.status(500).send({
-        message : "Subject Field is Empty."
-      });
-    }
+  }
+  else if(_.isNil(req.body.body)) {
+    res.status(500).send({
+      message : "Body Field is Empty."
+    });
+  }
+  else if(_.isNil(req.body.subject)) {
+    res.status(500).send({
+      message : "Subject Field is Empty."
+    });
   }
   else {
     let accessToken = oauth2Client.refreshAccessToken()
@@ -98,7 +98,7 @@ module.exports.sendMail = (req, res, next)=> {
 }
 
 function mailbody(body) {
-  data = {};
+  let data = {};
   data['to'] = body.to;
   data['subject'] = body.subject;
   data['body'] = body.body;
