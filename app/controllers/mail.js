@@ -55,12 +55,13 @@ module.exports.sendMail = (req, res, next)=> {
           accessToken: accessToken
         }
       });
+      let maildetails = mailbody(req.body);
       let mailOptions = {
-        from: "Debapriya Das, <megatron.notification.bot@gmail.com>",
-        to: "yodebu@gmail.com",
-        subject: "Node.js Email with Secure OAuth",
+        from: '"Debapriya Das", <megatron.notification.bot@gmail.com>',
+        to: maildetails.to,
+        subject: mailbody.subject,
         generateTextFromHTML: true,
-        html: "<b>test</b>"
+        html: mailbody.body
       };
       smtpTransport.sendMail(mailOptions, (error, response) => {
         if (error) {
@@ -86,5 +87,5 @@ function mailbody(body) {
   data['to'] = body.to;
   data['subject'] = body.subject;
   data['body'] = body.body;
-  return data  
+  return data;
 }
