@@ -25,7 +25,7 @@ const oauth2Client = new OAuth2(
 );
 
 oauth2Client.setCredentials({
-     refresh_token: googleconf.web.refresh_token
+     refresh_token: process.env['GOOGLE_REFRESH_TOKEN'] || googleconf.web.refresh_token
 });
 
 module.exports.hello = (req, res, next)=> {
