@@ -28,7 +28,9 @@ const smtpTransport = nodemailer.createTransport({
           clientSecret: googleconf.web.client_secret,
           refreshToken: googleconf.web.refresh_token,
           accessToken: accessToken
-     }
+        }
+    });
+}
 });
 
 
