@@ -1,8 +1,10 @@
 'use strict'
 
-const isThere = require('is-there')
-    , currentEnv = process.env.NODE_ENV || 'development'
-    , envFilePath = __dirname + "/env/" + currentEnv + ".js";
+const isThere = require('is-there');
+let currentEnv = process.env.NODE_ENV || 'development';
+
+currentEnv = currentEnv.toLowerCase();
+const envFilePath = __dirname + "/env/" + currentEnv + ".js";
 
 var environmentOptions, projectName;
 

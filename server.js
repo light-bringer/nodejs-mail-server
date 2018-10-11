@@ -12,8 +12,8 @@ const config = require(__dirname + '/config')
   , app = express();
 
 
-const privateKey  = fs.readFileSync(appDir + '/certs/server.key', 'utf8');
-const certificate = fs.readFileSync(appDir + '/certs/server.cert', 'utf8');
+const privateKey  = fs.readFileSync(appDir + '/certs/client-key.pem', 'utf8');
+const certificate = fs.readFileSync(appDir + '/certs/client-cert.pem', 'utf8');
 
 const credentials = {key: privateKey, cert: certificate};
 
